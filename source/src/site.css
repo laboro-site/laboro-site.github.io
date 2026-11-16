@@ -238,7 +238,7 @@ html[data-theme=light] .theme-btn .i-moon{display:none}
 .tab:hover{color:var(--tx);border-color:var(--tx)}
 .tab[aria-selected=true]{background:var(--tx);color:var(--bg);border-color:var(--tx)}
 .tab[aria-selected=true] sup{color:inherit;opacity:.6}
-.cat-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px}
+.cat-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:24px}
 .cat-bar .tabs{margin:0;flex-wrap:nowrap}
 .cat-bar .tab{height:48px;white-space:nowrap}
 .search{flex:1 1 260px;min-width:0;display:flex;align-items:center;gap:12px;height:48px;padding:0 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--card);transition:border-color .25s}
