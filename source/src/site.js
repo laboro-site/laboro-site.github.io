@@ -90,10 +90,11 @@
   /* ---------- shell ---------- */
   const groupList = g => SVC.filter(s => s.g === g);
   const gAb = g => groupList(g).some(ab);
+  const LOGO = `/*LOGO*/`;
   function renderShell() {
     const themeBtn = `<button class="ic-btn theme-btn" type="button" data-theme-toggle aria-label="${t('theme')}">${I.sun}${I.moon}</button>`;
     $('#hdr').innerHTML = `<div class="wrap hdr-in">
-      <a class="logo" href="#/" data-nav aria-label="Лаборо">${img('logo', 'НИЦ Лаборо', 'width="400" height="167" loading="eager"')}</a>
+      <a class="logo" href="#/" data-nav aria-label="Лаборо">${LOGO}</a>
       <nav class="nav" aria-label="Main">
         <button type="button" data-mega aria-expanded="false" aria-controls="mega">${t('navServices')}${I.dn}</button>
         <a href="#/@clients" data-nav>${t('navClients')}</a><a href="#/@audit" data-nav>${t('navAudit')}</a><a href="#/@cats" data-nav>${t('navCats')}</a><a href="#/@team" data-nav>${t('navTeam')}</a><a href="#/@contacts" data-nav>${t('navContacts')}</a>
@@ -107,7 +108,7 @@
       <div class="mnav-ft"><div class="row"><a class="mnav-tel" href="${TEL_H}">${TEL}</a><div class="soc"><a href="${TG}" target="_blank" rel="noopener" aria-label="Telegram">${I.tg}</a><a href="${WA}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a></div></div>
       <div class="row">${themeBtn}</div><button class="btn btn-p btn-w" type="button" data-modal="cons">${t('cta')}${I.arr}</button></div>`;
     $('#ft').innerHTML = `<div class="wrap"><div class="ft-top">
-      <div><a class="logo" href="#/" data-nav>${img('logo', 'НИЦ Лаборо', 'width="400" height="167"')}</a><p>${t('ftTag')}</p></div>
+      <div><a class="logo" href="#/" data-nav>${LOGO}</a><p>${t('ftTag')}</p></div>
       <div><h5 class="mono">${t('navServices')}</h5><ul>${D.groups.map(([g]) => `<li><a href="#/@catalog:${g}" data-nav>${t('g_' + g)}</a></li>`).join('')}</ul></div>
       <div><h5 class="mono">${t('navContacts')}</h5><ul><li><a href="${TEL_H}">${TEL}</a></li><li><a href="mailto:${MAIL}">${MAIL}</a></li><li><a href="#/@contacts" data-nav>${t('addr')}</a></li></ul></div>
       <div><h5 class="mono">${t('ftLegal')}</h5><ul>${['personal', 'ad', 'privacy', 'cookies'].map(k => `<li><a href="#/docs/${k}" data-nav>${t('d_' + k)}</a></li>`).join('')}</ul></div></div>

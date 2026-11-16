@@ -5,10 +5,11 @@ def face(fam,pkg,sub,rng):
     return f"@font-face{{font-family:'{fam}';font-weight:100 900;font-display:swap;src:url(data:font/woff2;base64,{b}) format('woff2');unicode-range:{rng}}}"
 CYR='U+0400-04FF,U+2116'; LAT='U+0000-00FF,U+2000-206F'
 fonts=''.join(face(f,p,s,r) for f,p in (('Geologica','geologica'),('Onest','onest'),('JetBrains Mono','jetbrains-mono')) for s,r in (('cyrillic',CYR),('latin',LAT)))
-logo=json.load(open(f'{R}/build/assets.json'))['logo']
+brand=json.load(open(f'{R}/brand/logo.json'))['logo']; fav=open(f'{R}/brand/favicon.svg').read()
+import urllib.parse; icon='<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,'+urllib.parse.quote(fav, safe="/:=' ")+'">'
 claw='<path d="M0 0C-26-6-40-34-28-60C-20-44-8-36 8-36C2-26 0-14 0 0Z"/><path d="M6 2C30 0 46-22 42-48C34-34 24-30 12-32C12-20 10-8 6 2Z"/>'
 html=f'''<!DOCTYPE html><html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#f3f2ec"><script>try{{var th=localStorage.getItem('lb1b-theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th}}catch(e){{}}</script>
-<title>404 — НИЦ Лаборо</title><style>{fonts}
+{icon}<title>404 — НИЦ Лаборо</title><style>{fonts}
 :root{{--ease:cubic-bezier(.2,.7,.1,1)}}
 html[data-theme=dark]{{--bg:#0b0a1c;--tx:#f1f0ea;--tx2:rgba(241,240,234,.66);--tx3:rgba(241,240,234,.42);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18);--hl:#c9f73a;--hlink:#0b0a1c;--card:#141230;--logof:brightness(0) invert(1);color-scheme:dark}}
 html[data-theme=light]{{--bg:#f3f2ec;--tx:#15113a;--tx2:rgba(21,17,58,.68);--tx3:rgba(21,17,58,.44);--line:rgba(21,17,58,.11);--line2:rgba(21,17,58,.24);--hl:#2a3fff;--hlink:#fff;--card:#faf9f5;--logof:none;color-scheme:light}}
@@ -17,7 +18,7 @@ body{{margin:0;background:var(--bg);color:var(--tx);font-family:'Onest',system-u
 body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:clamp(56px,7vw,112px) clamp(56px,7vw,112px);-webkit-mask-image:radial-gradient(110% 90% at 60% 40%,#000,transparent 78%);mask-image:radial-gradient(110% 90% at 60% 40%,#000,transparent 78%);opacity:.7;pointer-events:none}}
 a{{color:inherit;text-decoration:none}}
 header{{position:relative;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4.2vw,64px)}}
-header img{{width:122px;height:auto;filter:var(--logof);display:block}}
+header svg{{width:150px;height:auto;display:block;color:var(--tx)}}
 .mono{{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}}
 header .mono{{color:var(--tx2)}}
 main{{position:relative;flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(20px,4vw,70px);padding:clamp(16px,3vw,40px) clamp(20px,4.2vw,64px) clamp(28px,5vw,64px);max-width:1488px;width:100%;margin:0 auto}}
@@ -56,7 +57,7 @@ footer{{position:relative;display:flex;flex-wrap:wrap;gap:8px 28px;justify-conte
 @media (max-width:860px){{main{{grid-template-columns:1fr}}.art{{order:-1;max-width:460px;margin:0 auto;width:100%}}header .mono{{display:none}}.cta .btn{{flex:1 1 auto;justify-content:center}}}}
 @media (prefers-reduced-motion:reduce){{*,*::before{{animation:none!important;transition:none!important}}}}
 </style></head><body>
-<header><a href="ooolaboro1.html" aria-label="На главную"><img src="{logo}" alt="НИЦ Лаборо" width="400" height="167"></a><span class="mono">Ошибка 404 • страница не найдена</span></header>
+<header><a href="ooolaboro1.html" aria-label="На главную">{brand}</a><span class="mono">Ошибка 404 • страница не найдена</span></header>
 <main>
 <div><span class="eyebrow mono">Страница не найдена</span>
 <div class="num" aria-hidden="true"><span>4</span><span>0</span><span>4</span></div>

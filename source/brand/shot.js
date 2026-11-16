@@ -1,0 +1,7 @@
+const { chromium } = require('playwright'); const fs = require('fs'); const d = __dirname;
+(async () => { const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 900, height: 420 }, deviceScaleFactor: 2 });
+  const lg = JSON.parse(fs.readFileSync(d + '/logo.json')).logo, fav = fs.readFileSync(d + '/favicon.svg', 'utf8');
+  await p.setContent(`<body style="margin:0;display:grid;grid-template-columns:1fr 1fr;height:420px;font-family:sans-serif"><div style="background:#f3f2ec;color:#15113a;padding:30px"><div style="width:300px">${lg}</div><br><div style="width:122px">${lg}</div><br><div style="display:flex;gap:14px;align-items:end">${[120,64,32,16].map(s=>`<div style="width:${s}px">${fav}</div>`).join('')}</div></div><div style="background:#0b0a1c;color:#f1f0ea;padding:30px"><div style="width:300px">${lg}</div><br><div style="width:122px">${lg}</div><br><div style="display:flex;gap:14px;align-items:end">${[120,64,32,16].map(s=>`<div style="width:${s}px">${fav}</div>`).join('')}</div></div></body>`);
+  await p.screenshot({ path: d + '/preview.png' });
+  for (const s of [32, 180, 512]) { const q = await b.newPage({ viewport: { width: s, height: s } }); await q.setContent(`<body style="margin:0;background:transparent"><div style="width:${s}px;height:${s}px">${s === 180 ? fav.replace('rx="24"', 'rx="0"') : fav}</div></body>`); await q.screenshot({ path: `${d}/icon-${s}.png`, omitBackground: true }); await q.close(); }
+  await b.close(); })();

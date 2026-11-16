@@ -70,8 +70,8 @@ ul,ol{list-style:none}
 .hdr.is-solid{background:var(--hdr-bg);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-color:var(--line)}
 .hdr.is-hidden{transform:translateY(-100%)}
 .hdr-in{height:100%;display:flex;align-items:center;gap:clamp(14px,2vw,34px)}
-.logo{display:block;flex:none;width:122px}
-.logo img{width:100%;height:auto;filter:var(--logo-f);transition:filter .4s}
+.logo{display:block;flex:none;width:150px;padding:10px 0;color:var(--tx)}
+.logo svg{display:block;width:100%;height:auto;transition:color .4s}
 .nav{display:flex;align-items:center;gap:clamp(6px,1.1vw,18px);margin-left:clamp(6px,2vw,40px)}
 .nav a,.nav button{position:relative;display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 10px;font-size:14.5px;font-weight:500;color:var(--tx-2);transition:color .25s}
 .nav a:hover,.nav button:hover,.nav button[aria-expanded=true]{color:var(--tx)}
@@ -415,7 +415,7 @@ html[data-theme=light] .lg[data-g=pr]{--gc:#2a3fff}html[data-theme=light] .lg[da
 /* ============ footer ============ */
 .ft{border-top:1px solid var(--line);padding:clamp(40px,5vw,72px) 0 28px;background:var(--bg)}
 .ft-top{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:36px clamp(20px,3vw,56px)}
-.ft .logo{width:150px;margin-bottom:18px}
+.ft .logo{width:176px;padding:0;margin-bottom:18px}
 .ft-top p{color:var(--tx-2);font-size:14.5px;max-width:30ch}
 .ft h5{margin:0 0 14px;color:var(--tx-3);font-weight:500}
 .ft li a{display:inline-block;padding:5px 0;font-size:14.5px;color:var(--tx-2);transition:color .2s}
@@ -599,7 +599,7 @@ html[data-theme=light] .lg[data-g=pr]{--gc:#2a3fff}html[data-theme=light] .lg[da
 }
 @media (max-width:640px){
   body{font-size:16px}
-  .logo{width:104px}
+  .logo{width:128px}
   .pop{grid-template-columns:1fr}
   .cat-bar .tabs{flex:1 1 100%;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--pad)*-1);padding:0 var(--pad)}.cat-bar .tabs::-webkit-scrollbar{display:none}.cat-bar .tab{flex:none;height:44px}
   .pt{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.pt2{grid-template-columns:1fr;margin-top:6px}

@@ -16,7 +16,11 @@ out=t.replace('/*FONTS*/',fonts).replace('/*CSS*/',open(f'{R}/src/site.css').rea
 SITE='https://laboro-site.github.io'
 OG=f'''<meta property="og:type" content="website"><meta property="og:site_name" content="НИЦ Лаборо"><meta property="og:locale" content="ru_RU"><meta property="og:url" content="{SITE}/"><meta property="og:title" content="НИЦ Лаборо — экологическая документация"><meta property="og:description" content="Экологические проекты, отчётность и лабораторные исследования — от выезда на объект до согласования в надзорных органах."><meta property="og:image" content="{SITE}/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 '''
-out=out.replace('<title>',OG+'<title>',1)
+import urllib.parse
+BR=json.load(open(f'{R}/brand/logo.json')); FAV=open(f'{R}/brand/favicon.svg').read()
+ICON=f'''<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,{urllib.parse.quote(FAV, safe="/:=' ")}"><link rel="apple-touch-icon" href="{SITE}/apple-touch-icon.png">
+'''
+out=out.replace('<title>',OG+ICON+'<title>',1).replace('/*LOGO*/',BR['logo'])
 VERSION=open(f'{R}/VERSION').read().strip()
 out=out.replace('/*VERSION*/',VERSION)
 open(f'{R}/dist/index.html','w').write(out)
