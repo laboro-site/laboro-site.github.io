@@ -509,7 +509,7 @@
   /* ---------- lang / theme ---------- */
   function setTheme(v) {
     theme = v; store.set('lb1b-theme', v); document.documentElement.dataset.theme = v;
-    const mc = $('meta[name=theme-color]'); if (mc) mc.content = v === 'dark' ? '#0b0a1c' : '#f3f2ec';
+    const mc = $('meta[name=theme-color]'); if (mc) mc.content = v === 'dark' ? '#0b0a1c' : '#eef0f5';
     if (fx) fx.repaint();
   }
 

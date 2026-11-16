@@ -8,11 +8,11 @@ fonts=''.join(face(f,p,s,r) for f,p in (('Geologica','geologica'),('Onest','ones
 brand=json.load(open(f'{R}/brand/logo.json'))['logo']; fav=open(f'{R}/brand/favicon.svg').read()
 import urllib.parse; icon='<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,'+urllib.parse.quote(fav, safe="/:=' ")+'">'
 claw='<path d="M0 0C-26-6-40-34-28-60C-20-44-8-36 8-36C2-26 0-14 0 0Z"/><path d="M6 2C30 0 46-22 42-48C34-34 24-30 12-32C12-20 10-8 6 2Z"/>'
-html=f'''<!DOCTYPE html><html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#f3f2ec"><script>try{{var th=localStorage.getItem('lb1b-theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th}}catch(e){{}}</script>
+html=f'''<!DOCTYPE html><html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#eef0f5"><script>try{{var th=localStorage.getItem('lb1b-theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th}}catch(e){{}}</script>
 {icon}<title>404 — НИЦ Лаборо</title><style>{fonts}
 :root{{--ease:cubic-bezier(.2,.7,.1,1)}}
 html[data-theme=dark]{{--bg:#0b0a1c;--tx:#f1f0ea;--tx2:rgba(241,240,234,.66);--tx3:rgba(241,240,234,.42);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18);--hl:#c9f73a;--hlink:#0b0a1c;--card:#141230;--logof:brightness(0) invert(1);color-scheme:dark}}
-html[data-theme=light]{{--bg:#f3f2ec;--tx:#15113a;--tx2:rgba(21,17,58,.68);--tx3:rgba(21,17,58,.44);--line:rgba(21,17,58,.11);--line2:rgba(21,17,58,.24);--hl:#2a3fff;--hlink:#fff;--card:#faf9f5;--logof:none;color-scheme:light}}
+html[data-theme=light]{{--bg:#eef0f5;--tx:#0e1038;--tx2:rgba(14,16,56,.74);--tx3:rgba(14,16,56,.54);--line:rgba(16,20,62,.13);--line2:rgba(16,20,62,.3);--hl:#2a3fff;--hlink:#fff;--card:#fff;--logof:none;color-scheme:light}}
 *{{box-sizing:border-box}}html,body{{height:100%}}
 body{{margin:0;background:var(--bg);color:var(--tx);font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100svh;overflow-x:hidden}}
 body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:clamp(56px,7vw,112px) clamp(56px,7vw,112px);-webkit-mask-image:radial-gradient(110% 90% at 60% 40%,#000,transparent 78%);mask-image:radial-gradient(110% 90% at 60% 40%,#000,transparent 78%);opacity:.7;pointer-events:none}}

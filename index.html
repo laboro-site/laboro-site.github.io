@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f3f2ec">
+<meta name="theme-color" content="#eef0f5">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="НИЦ Лаборо — экологические проекты, отчётность и лабораторные исследования. Концепт редизайна.">
 <meta property="og:type" content="website"><meta property="og:site_name" content="НИЦ Лаборо"><meta property="og:locale" content="ru_RU"><meta property="og:url" content="https://laboro-site.github.io/"><meta property="og:title" content="НИЦ Лаборо — экологическая документация"><meta property="og:description" content="Экологические проекты, отчётность и лабораторные исследования — от выезда на объект до согласования в надзорных органах."><meta property="og:image" content="https://laboro-site.github.io/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
@@ -29,11 +29,11 @@ html[data-theme=dark]{
   --hdr-bg:rgba(11,10,28,.72); --paper:#fff; color-scheme:dark;
 }
 html[data-theme=light]{
-  --bg:#f3f2ec; --bg-2:#eae9e1; --card:#faf9f5; --card-2:#fff; --line:rgba(21,17,58,.11); --line-2:rgba(21,17,58,.24);
-  --tx:#15113a; --tx-2:rgba(21,17,58,.68); --tx-3:rgba(21,17,58,.44);
-  --hl:#2a3fff; --hl-ink:#fff; --hl-soft:rgba(42,63,255,.08); --blue:#2a3fff;
-  --logo-f:none; --cli-f:none; --shadow:0 30px 70px -24px rgba(21,17,58,.28);
-  --hdr-bg:rgba(243,242,236,.78); --paper:#fff; color-scheme:light;
+  --bg:#eef0f5; --bg-2:#e2e5ee; --card:#fff; --card-2:#f5f6fb; --line:rgba(16,20,62,.13); --line-2:rgba(16,20,62,.3);
+  --tx:#0e1038; --tx-2:rgba(14,16,56,.74); --tx-3:rgba(14,16,56,.54);
+  --hl:#2a3fff; --hl-ink:#fff; --hl-soft:rgba(42,63,255,.09); --blue:#2a3fff;
+  --logo-f:none; --cli-f:none; --shadow:0 30px 70px -24px rgba(16,20,62,.3);
+  --hdr-bg:rgba(238,240,245,.82); --paper:#fff; color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:auto;background:var(--bg)}
@@ -662,6 +662,10 @@ html[data-theme=light] .lg[data-g=pr]{--gc:#2a3fff}html[data-theme=light] .lg[da
 }
 @media print{.hdr,.fab,.cookie,.prog,.hero-cv{display:none!important}}
 
+/* светлая тема: карточки белые на холодном сером фоне */
+html[data-theme=light] .pc,html[data-theme=light] .feat,html[data-theme=light] .mega,html[data-theme=light] .modal-box{background:var(--card)}
+html[data-theme=light] .feat:hover{background:var(--card-2)}
+
 </style>
 </head>
 <body>
@@ -942,7 +946,7 @@ const ILL = {
       <div><h5 class="mono">${t('navContacts')}</h5><ul><li><a href="${TEL_H}">${TEL}</a></li><li><a href="mailto:${MAIL}">${MAIL}</a></li><li><a href="#/@contacts" data-nav>${t('addr')}</a></li></ul></div>
       <div><h5 class="mono">${t('ftLegal')}</h5><ul>${['personal', 'ad', 'privacy', 'cookies'].map(k => `<li><a href="#/docs/${k}" data-nav>${t('d_' + k)}</a></li>`).join('')}</ul></div></div>
       <div class="ft-big" aria-hidden="true">${lang === 'ru' ? 'Лаборо' : 'LABORO'}</div>
-      <div class="ft-bot"><span>${t('ftCopy')}</span><span class="concept">${t('ftConcept')} • v1.004</span></div></div>`;
+      <div class="ft-bot"><span>${t('ftCopy')}</span><span class="concept">${t('ftConcept')} • v1.005</span></div></div>`;
     $('#fab').innerHTML = `<a href="${TG}" target="_blank" rel="noopener" aria-label="Telegram">${I.tg}</a><a href="${WA}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a><button type="button" data-top aria-label="${t('toTop')}">${I.up}</button>`;
     $('#cookie').innerHTML = `<span>${t('cookie')} <a href="#/docs/cookies" data-nav>${t('more')}</a></span><button class="btn btn-g btn-sm" type="button" data-cookie>${t('ok')}</button>`;
   }
@@ -1338,7 +1342,7 @@ const ILL = {
   /* ---------- lang / theme ---------- */
   function setTheme(v) {
     theme = v; store.set('lb1b-theme', v); document.documentElement.dataset.theme = v;
-    const mc = $('meta[name=theme-color]'); if (mc) mc.content = v === 'dark' ? '#0b0a1c' : '#f3f2ec';
+    const mc = $('meta[name=theme-color]'); if (mc) mc.content = v === 'dark' ? '#0b0a1c' : '#eef0f5';
     if (fx) fx.repaint();
   }
 
