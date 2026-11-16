@@ -7,15 +7,17 @@ CYR='U+0400-04FF,U+2116'; LAT='U+0000-00FF,U+2000-206F'
 fonts=''.join(face(f,p,s,r) for f,p in (('Geologica','geologica'),('Onest','onest'),('JetBrains Mono','jetbrains-mono')) for s,r in (('cyrillic',CYR),('latin',LAT)))
 logo=json.load(open(f'{R}/build/assets.json'))['logo']
 claw='<path d="M0 0C-26-6-40-34-28-60C-20-44-8-36 8-36C2-26 0-14 0 0Z"/><path d="M6 2C30 0 46-22 42-48C34-34 24-30 12-32C12-20 10-8 6 2Z"/>'
-html=f'''<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#0b0a1c">
+html=f'''<!DOCTYPE html><html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#f3f2ec"><script>try{{var th=localStorage.getItem('lb1b-theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th}}catch(e){{}}</script>
 <title>404 — НИЦ Лаборо</title><style>{fonts}
-:root{{--bg:#0b0a1c;--tx:#f1f0ea;--tx2:rgba(241,240,234,.66);--tx3:rgba(241,240,234,.42);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18);--hl:#c9f73a;--card:#141230;--ease:cubic-bezier(.2,.7,.1,1)}}
+:root{{--ease:cubic-bezier(.2,.7,.1,1)}}
+html[data-theme=dark]{{--bg:#0b0a1c;--tx:#f1f0ea;--tx2:rgba(241,240,234,.66);--tx3:rgba(241,240,234,.42);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18);--hl:#c9f73a;--hlink:#0b0a1c;--card:#141230;--logof:brightness(0) invert(1);color-scheme:dark}}
+html[data-theme=light]{{--bg:#f3f2ec;--tx:#15113a;--tx2:rgba(21,17,58,.68);--tx3:rgba(21,17,58,.44);--line:rgba(21,17,58,.11);--line2:rgba(21,17,58,.24);--hl:#2a3fff;--hlink:#fff;--card:#faf9f5;--logof:none;color-scheme:light}}
 *{{box-sizing:border-box}}html,body{{height:100%}}
 body{{margin:0;background:var(--bg);color:var(--tx);font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100svh;overflow-x:hidden}}
 body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:clamp(56px,7vw,112px) clamp(56px,7vw,112px);-webkit-mask-image:radial-gradient(110% 90% at 60% 40%,#000,transparent 78%);mask-image:radial-gradient(110% 90% at 60% 40%,#000,transparent 78%);opacity:.7;pointer-events:none}}
 a{{color:inherit;text-decoration:none}}
 header{{position:relative;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4.2vw,64px)}}
-header img{{width:122px;height:auto;filter:brightness(0) invert(1);display:block}}
+header img{{width:122px;height:auto;filter:var(--logof);display:block}}
 .mono{{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}}
 header .mono{{color:var(--tx2)}}
 main{{position:relative;flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(20px,4vw,70px);padding:clamp(16px,3vw,40px) clamp(20px,4.2vw,64px) clamp(28px,5vw,64px);max-width:1488px;width:100%;margin:0 auto}}
@@ -31,7 +33,7 @@ p{{color:var(--tx2);font-size:clamp(16px,1.3vw,19px);line-height:1.5;max-width:4
 .btn{{position:relative;display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 26px;border-radius:4px;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;isolation:isolate;transition:color .35s var(--ease),border-color .35s}}
 .btn::before{{content:'';position:absolute;inset:0;background:var(--tx);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}}
 .btn:hover{{color:var(--bg)}}.btn:hover::before{{transform:none}}
-.btn-p{{background:var(--hl);color:#0b0a1c}}.btn-g{{border:1px solid var(--line2)}}.btn-g:hover{{border-color:var(--tx)}}
+.btn-p{{background:var(--hl);color:var(--hlink)}}.btn-g{{border:1px solid var(--line2)}}.btn-g:hover{{border-color:var(--tx)}}
 .btn svg{{width:16px;height:16px;transition:transform .35s var(--ease)}}.btn:hover svg{{transform:translateX(4px)}}
 .art{{position:relative;min-width:0}}.art svg{{display:block;width:100%;height:auto;overflow:visible}}
 .il{{fill:none;stroke:var(--tx);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}}

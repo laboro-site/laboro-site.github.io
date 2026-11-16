@@ -13,6 +13,10 @@ js=''.join(open(f'{R}/src/{f}').read()+'\n' for f in ('i18n.js','ill.js','site.j
 data=open(f'{R}/build/data.json').read().replace('</','<\\/')
 assets=open(f'{R}/build/assets.json').read()
 out=t.replace('/*FONTS*/',fonts).replace('/*CSS*/',open(f'{R}/src/site.css').read()).replace('/*DATA*/',data).replace('/*ASSETS*/',assets).replace('/*JS*/',js.replace('</script','<\\/script'))
+SITE='https://laboro-site.github.io'
+OG=f'''<meta property="og:type" content="website"><meta property="og:site_name" content="НИЦ Лаборо"><meta property="og:locale" content="ru_RU"><meta property="og:url" content="{SITE}/"><meta property="og:title" content="НИЦ Лаборо — экологическая документация"><meta property="og:description" content="Экологические проекты, отчётность и лабораторные исследования — от выезда на объект до согласования в надзорных органах."><meta property="og:image" content="{SITE}/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+'''
+out=out.replace('<title>',OG+'<title>',1)
 VERSION=open(f'{R}/VERSION').read().strip()
 out=out.replace('/*VERSION*/',VERSION)
 open(f'{R}/dist/index.html','w').write(out)
